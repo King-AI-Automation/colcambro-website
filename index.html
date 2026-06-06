@@ -393,8 +393,8 @@
           }
 
           function renderCard(ep) {
-            var thumb = 'https://img.youtube.com/vi/' + ep.videoId + '/maxresdefault.jpg';
-            var fallback = 'https://img.youtube.com/vi/' + ep.videoId + '/hqdefault.jpg';
+            var thumb = 'https://img.youtube.com/vi/' + ep.videoId + '/hqdefault.jpg';
+            var fallback = 'https://img.youtube.com/vi/' + ep.videoId + '/mqdefault.jpg';
             var date = ep.published ? new Date(ep.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
             var colSpan = ep.index === 2 ? ' sm:col-span-2 lg:col-span-1' : '';
             var title = ep.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
