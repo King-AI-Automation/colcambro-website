@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,11 +15,11 @@
     }
   </script>
   <style>
-    :root { --blue:#1B6BE0; --blue-dark:#1457BD; --dark:#0E1116; --muted:#5B6470; --offwhite:#F7F8FA; }
+    :root { --blue:#1B6BE0; --blue-dark:#1457BD; --dark:#0E1116; --surface:#161B22; --muted:#8B97A6; --offwhite:#F7F8FA; --border:#1E2533; }
     html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; color: var(--dark); }
-    .nav-link { font-size:14px; font-weight:500; color:#4b5563; text-decoration:none; padding:8px 12px; border-radius:6px; transition:color 0.15s, background 0.15s; }
-    .nav-link:hover { color:var(--blue); background:#f0f5ff; }
+    body { -webkit-font-smoothing: antialiased; background: var(--dark); color: #F0F2F5; }
+    .nav-link { font-size:14px; font-weight:500; color:#9ca3af; text-decoration:none; padding:8px 12px; border-radius:6px; transition:color 0.15s, background 0.15s; }
+    .nav-link:hover { color:var(--blue); background:#0f1e3d; }
     .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#fff; font-family:inherit; font-size:14px; font-weight:600; padding:14px 24px; border-radius:6px; border:none; cursor:pointer; text-decoration:none; transition:background 0.15s; white-space:nowrap; }
     .btn-primary:hover { background:var(--blue-dark); }
     @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
@@ -31,10 +31,10 @@
     .platform-btn:hover { opacity:0.88; }
   </style>
 </head>
-<body class="bg-white font-sans">
+<body class="font-sans">
 
   <!-- NAV -->
-  <header id="site-header" class="sticky top-0 z-50 bg-white border-b border-gray-100" style="transition:box-shadow 0.2s">
+  <header id="site-header" class="sticky top-0 z-50" style="background:#0d1117; border-bottom:1px solid var(--border); transition:box-shadow 0.2s">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="index.html" class="flex items-baseline gap-1.5 shrink-0 no-underline">
@@ -44,7 +44,7 @@
         <nav class="hidden lg:flex items-center gap-0.5">
           <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
           <a href="speaking.html" class="nav-link">Speaking</a>
-          <a href="podcast.html" class="nav-link" style="color:var(--blue);background:#f0f5ff">Podcast</a>
+          <a href="podcast.html" class="nav-link" style="color:var(--blue);background:#0f1e3d">Podcast</a>
           <a href="resources.html" class="nav-link">Resources</a>
           <a href="results.html" class="nav-link">Results</a>
           <a href="about.html" class="nav-link">About</a>
@@ -54,14 +54,14 @@
             Book a Call
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <button id="nav-toggle" class="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-50">
+          <button id="nav-toggle" class="lg:hidden p-2 rounded-md" style="color:#9ca3af; background:transparent; border:none; cursor:pointer;">
             <svg id="icon-menu" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
             <svg id="icon-close" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
     </div>
-    <div id="mobile-nav" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <div id="mobile-nav" class="hidden lg:hidden" style="border-top:1px solid var(--border); background:#0d1117;">
       <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
         <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
         <a href="speaking.html" class="nav-link">Speaking</a>
@@ -201,17 +201,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.025em;color:var(--dark);margin-bottom:16px;">Conversations across every sector</h2>
+          <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.025em;color:#F0F2F5;margin-bottom:16px;">Conversations across every sector</h2>
           <p style="font-size:1rem;color:var(--muted);line-height:1.65;margin-bottom:32px;">
             CamBro Conversations brings together guests from across business, sport, health, and personal development, all with something tangible to say about building a better life or career.
           </p>
           <div class="grid grid-cols-2 gap-3">
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Sales & Business</div>
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Property & Investment</div>
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Mindset & Performance</div>
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Fitness & Health</div>
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Finance & Wealth</div>
-            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Entrepreneurship</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Sales & Business</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Property & Investment</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Mindset & Performance</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Fitness & Health</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Finance & Wealth</div>
+            <div style="padding:14px 16px;background:var(--surface);border-radius:8px;font-size:0.9rem;font-weight:600;color:#F0F2F5;">Entrepreneurship</div>
           </div>
         </div>
         <div style="padding:40px;background:var(--dark);border-radius:16px;">
@@ -253,7 +253,7 @@
         <div class="sm:col-span-2">
           <a href="index.html" style="display:flex;align-items:baseline;gap:6px;text-decoration:none;margin-bottom:16px;">
             <span style="font-size:20px;font-weight:800;color:var(--blue);">CamBro</span>
-            <span style="font-size:13px;font-weight:500;color:#4b5563;">&thinsp;/&thinsp;Colin Campbell</span>
+            <span style="font-size:13px;font-weight:500;color:#9ca3af;">&thinsp;/&thinsp;Colin Campbell</span>
           </a>
           <p style="font-size:0.875rem;line-height:1.65;max-width:340px;">Sales coach, speaker, and host of the CamBro Conversations podcast.</p>
         </div>
@@ -280,7 +280,7 @@
       </div>
       <div style="border-top:1px solid #1a1f2b;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
         <p style="font-size:12px;">© 2026 Colin Campbell · CamBro Conversations.</p>
-        <p style="font-size:11px;color:#374151;font-style:italic;">Demo build — forms not yet live. Enquire via Linktree.</p>
+        <p style="font-size:11px;color:#9ca3af;font-style:italic;">Demo build — forms not yet live. Enquire via Linktree.</p>
       </div>
     </div>
   </footer>
@@ -297,7 +297,7 @@
     });
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.scrollY > 8 ? '0 1px 4px rgba(0,0,0,0.07)' : 'none';
+      header.style.boxShadow = window.scrollY > 8 ? '0 2px 12px rgba(0,0,0,0.5)' : 'none';
     }, { passive: true });
   </script>
 </body>

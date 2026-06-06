@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,11 +25,13 @@
       --blue: #1B6BE0;
       --blue-dark: #1457BD;
       --dark: #0E1116;
-      --muted: #5B6470;
+      --surface: #161B22;
+      --muted: #8B97A6;
       --offwhite: #F7F8FA;
+      --border: #1E2533;
     }
     html { scroll-behavior: smooth; }
-    body { -webkit-font-smoothing: antialiased; color: var(--dark); }
+    body { -webkit-font-smoothing: antialiased; background: var(--dark); color: #F0F2F5; }
 
     @keyframes marquee {
       0%   { transform: translateX(0); }
@@ -56,24 +58,24 @@
 
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--dark);
+      background: transparent; color:#F0F2F5;
       font-family: inherit; font-size: 14px; font-weight: 600;
       padding: 14px 24px; border-radius: 6px;
-      border: 2px solid #dde1e7;
+      border: 2px solid #2a3040;
       cursor: pointer; text-decoration: none; transition: border-color 0.15s, color 0.15s;
       white-space: nowrap;
     }
     .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
 
     .nav-link {
-      font-size: 14px; font-weight: 500; color: #4b5563;
+      font-size: 14px; font-weight: 500; color: #9ca3af;
       text-decoration: none; padding: 8px 12px; border-radius: 6px;
       transition: color 0.15s, background 0.15s;
     }
-    .nav-link:hover { color: var(--blue); background: #f0f5ff; }
+    .nav-link:hover { color: var(--blue); background: #0f1e3d; }
     .nav-link.active { color: var(--blue); }
 
-    .service-row + .service-row { border-top: 1px solid #e5e7eb; }
+    .service-row + .service-row { border-top:1px solid var(--border); }
 
     .ep-card {
       border-radius: 12px; overflow: hidden;
@@ -92,10 +94,10 @@
     .platform-btn:hover { opacity: 0.88; }
   </style>
 </head>
-<body class="bg-white font-sans">
+<body class="font-sans">
 
   <!-- ─── NAV ──────────────────────────────────────────────────── -->
-  <header id="site-header" class="sticky top-0 z-50 bg-white border-b border-gray-100" style="transition: box-shadow 0.2s">
+  <header id="site-header" class="sticky top-0 z-50" style="background:#0d1117; border-bottom:1px solid var(--border); transition: box-shadow 0.2s">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
 
@@ -118,7 +120,7 @@
             Book a Call
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <button id="nav-toggle" class="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-50" aria-label="Menu">
+          <button id="nav-toggle" class="lg:hidden p-2 rounded-md" style="color:#9ca3af; background:transparent; border:none; cursor:pointer;" aria-label="Menu">
             <svg id="icon-menu" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
             <svg id="icon-close" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -126,7 +128,7 @@
       </div>
     </div>
 
-    <div id="mobile-nav" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <div id="mobile-nav" class="hidden lg:hidden" style="border-top:1px solid var(--border); background:#0d1117;">
       <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
         <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
         <a href="speaking.html" class="nav-link">Speaking</a>
@@ -140,20 +142,21 @@
   </header>
 
   <!-- ─── HERO ─────────────────────────────────────────────────── -->
-  <section class="py-16 lg:py-28" style="min-height: 88vh; display:flex; align-items:center;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+  <section style="overflow:hidden;">
+    <!-- Desktop: 55/45 split, full viewport height -->
+    <div class="hidden lg:grid" style="min-height:100svh; grid-template-columns:55% 45%; align-items:stretch;">
 
-        <!-- Copy -->
-        <div class="lg:col-span-3 order-2 lg:order-1">
-          <p style="font-size:14px; font-weight:500; color:var(--muted); margin-bottom:20px; letter-spacing:0.01em">
-            Sales Coach · Speaker · Host of CamBro Conversations
+      <!-- Left: content panel -->
+      <div style="display:flex; flex-direction:column; justify-content:center; padding:clamp(60px,8vh,100px) clamp(32px,5vw,72px);">
+        <div style="max-width:560px;">
+          <p style="font-size:13px; font-weight:500; color:var(--muted); margin-bottom:28px; letter-spacing:0.04em; text-transform:uppercase">
+            Sales Coach &nbsp;·&nbsp; Speaker &nbsp;·&nbsp; Host of CamBro Conversations
           </p>
-          <h1 style="font-size:clamp(3.5rem,8vw,5.75rem); font-weight:800; letter-spacing:-0.035em; line-height:0.94; color:var(--dark); margin-bottom:24px; text-wrap:balance">
+          <h1 style="font-size:clamp(4rem,7vw,6rem); font-weight:800; letter-spacing:-0.04em; line-height:0.92; color:#F0F2F5; margin-bottom:28px; text-wrap:balance">
             Colin<br>Campbell
           </h1>
-          <p style="font-size:1.2rem; color:var(--muted); line-height:1.65; max-width:460px; margin-bottom:40px">
-            Helping business owners <strong style="color:var(--dark); font-weight:600">generate more leads</strong>, convert more opportunities, and build predictable sales systems.
+          <p style="font-size:1.15rem; color:var(--muted); line-height:1.7; max-width:440px; margin-bottom:44px">
+            Helping business owners <strong style="color:#F0F2F5; font-weight:600">generate more leads</strong>, convert more opportunities, and build predictable sales systems.
           </p>
           <div style="display:flex; flex-wrap:wrap; gap:12px;">
             <a href="about.html#contact" class="btn-primary">
@@ -166,29 +169,48 @@
             </a>
           </div>
         </div>
+      </div>
 
-        <!-- Photo -->
-        <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center lg:justify-end">
-          <div style="position:relative; width:100%; max-width:360px;">
-            <div style="
-              position:absolute; top:14px; left:14px;
-              width:100%; height:100%;
-              background:var(--blue); border-radius:16px;
-            "></div>
-            <img
-              src="assets/colin-headshot.jpg"
-              onerror="this.onerror=null;this.src='https://placehold.co/480x580/1B6BE0/ffffff?text=Colin+Campbell'"
-              alt="Colin Campbell — Sales Coach, Speaker & Podcast Host"
-              style="
-                position:relative; z-index:1;
-                width:100%; border-radius:16px;
-                object-fit:cover; aspect-ratio:5/6;
-                display:block;
-              "
-            >
-          </div>
+      <!-- Right: full-bleed photo with left-edge fade -->
+      <div style="position:relative; overflow:hidden;">
+        <img
+          src="assets/colin-headshot.jpg"
+          onerror="this.onerror=null;this.src='https://placehold.co/900x1000/1B6BE0/ffffff?text=Colin+Campbell'"
+          alt="Colin Campbell — Sales Coach, Speaker & Podcast Host"
+          style="width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block;"
+        >
+        <!-- Gradient: dark bleeds from left edge into photo -->
+        <div style="position:absolute; inset:0; background:linear-gradient(to right, var(--dark) 0%, rgba(14,17,22,0.6) 25%, rgba(14,17,22,0) 50%); pointer-events:none;"></div>
+      </div>
+    </div>
+
+    <!-- Mobile: stacked layout -->
+    <div class="lg:hidden">
+      <div style="padding:72px 24px 40px; display:flex; flex-direction:column; justify-content:center;">
+        <p style="font-size:12px; font-weight:500; color:var(--muted); margin-bottom:20px; letter-spacing:0.04em; text-transform:uppercase">
+          Sales Coach &nbsp;·&nbsp; Speaker &nbsp;·&nbsp; Host
+        </p>
+        <h1 style="font-size:clamp(3.25rem,14vw,4.5rem); font-weight:800; letter-spacing:-0.04em; line-height:0.92; color:#F0F2F5; margin-bottom:20px; text-wrap:balance">
+          Colin<br>Campbell
+        </h1>
+        <p style="font-size:1rem; color:var(--muted); line-height:1.7; margin-bottom:36px; max-width:420px">
+          Helping business owners <strong style="color:#F0F2F5; font-weight:600">generate more leads</strong>, convert more opportunities, and build predictable sales systems.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a href="about.html#contact" class="btn-primary">Book a Discovery Call</a>
+          <a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" class="btn-outline">Watch Podcast</a>
         </div>
-
+      </div>
+      <!-- Mobile photo strip -->
+      <div style="height:380px; overflow:hidden; position:relative;">
+        <img
+          src="assets/colin-headshot.jpg"
+          onerror="this.onerror=null;this.src='https://placehold.co/800x600/1B6BE0/ffffff?text=Colin+Campbell'"
+          alt="Colin Campbell"
+          style="width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block;"
+        >
+        <!-- Bottom fade to dark -->
+        <div style="position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(to bottom, transparent, var(--dark)); pointer-events:none;"></div>
       </div>
     </div>
   </section>
@@ -226,13 +248,13 @@
   </div>
 
   <!-- ─── WORK WITH COLIN (editorial rows) ─────────────────────── -->
-  <section style="background:var(--offwhite); padding:80px 0;">
+  <section style="background:var(--surface); padding:80px 0;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
 
         <!-- Left: section intro -->
         <div class="lg:col-span-4">
-          <h2 style="font-size:clamp(2rem,4vw,2.75rem); font-weight:800; letter-spacing:-0.025em; line-height:1.1; color:var(--dark); margin-bottom:16px; text-wrap:balance">
+          <h2 style="font-size:clamp(2rem,4vw,2.75rem); font-weight:800; letter-spacing:-0.025em; line-height:1.1; color:#F0F2F5; margin-bottom:16px; text-wrap:balance">
             Work With Colin
           </h2>
           <p style="font-size:1rem; color:var(--muted); line-height:1.65; max-width:340px; margin-bottom:32px">
@@ -249,7 +271,7 @@
           <div class="service-row" style="padding:28px 0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px;">
               <div>
-                <h3 style="font-size:1.35rem; font-weight:700; color:var(--dark); margin-bottom:8px;">Sales Coaching</h3>
+                <h3 style="font-size:1.35rem; font-weight:700; color:#F0F2F5; margin-bottom:8px;">Sales Coaching</h3>
                 <p style="font-size:0.95rem; color:var(--muted); line-height:1.6; max-width:520px;">For founders, consultants, and business owners. Build a repeatable process, increase your conversion rate, and close with confidence, one focused engagement at a time.</p>
               </div>
               <a href="work-with-colin.html#sales-coaching" aria-label="Sales Coaching details" style="flex-shrink:0; margin-top:4px; font-size:1.25rem; color:var(--blue); text-decoration:none; font-weight:600;">→</a>
@@ -258,7 +280,7 @@
           <div class="service-row" style="padding:28px 0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px;">
               <div>
-                <h3 style="font-size:1.35rem; font-weight:700; color:var(--dark); margin-bottom:8px;">Workshops & Team Training</h3>
+                <h3 style="font-size:1.35rem; font-weight:700; color:#F0F2F5; margin-bottom:8px;">Workshops & Team Training</h3>
                 <p style="font-size:0.95rem; color:var(--muted); line-height:1.6; max-width:520px;">Interactive sessions for sales teams and organisations, covering consultative selling and objection handling to LinkedIn personal branding. Delivered across the UK and Dubai.</p>
               </div>
               <a href="work-with-colin.html#workshops" aria-label="Workshops details" style="flex-shrink:0; margin-top:4px; font-size:1.25rem; color:var(--blue); text-decoration:none; font-weight:600;">→</a>
@@ -267,7 +289,7 @@
           <div class="service-row" style="padding:28px 0 0;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px;">
               <div>
-                <h3 style="font-size:1.35rem; font-weight:700; color:var(--dark); margin-bottom:8px;">Fractional Sales Support</h3>
+                <h3 style="font-size:1.35rem; font-weight:700; color:#F0F2F5; margin-bottom:8px;">Fractional Sales Support</h3>
                 <p style="font-size:0.95rem; color:var(--muted); line-height:1.6; max-width:520px;">Embedded sales leadership part-time. Process design, playbooks, CRM/pipeline optimisation, and revenue consulting, without the cost of a full-time hire.</p>
               </div>
               <a href="work-with-colin.html#fractional" aria-label="Fractional Sales details" style="flex-shrink:0; margin-top:4px; font-size:1.25rem; color:var(--blue); text-decoration:none; font-weight:600;">→</a>
@@ -280,7 +302,7 @@
   </section>
 
   <!-- ─── PODCAST STRIP ─────────────────────────────────────────── -->
-  <section style="background:var(--dark); padding:80px 0;">
+  <section style="background:#0A0D12; padding:80px 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:36px;">
@@ -355,15 +377,15 @@
   </section>
 
   <!-- ─── TESTIMONIAL HIGHLIGHT ─────────────────────────────────── -->
-  <section style="background:var(--offwhite); padding:80px 0;">
+  <section style="background:var(--surface); padding:80px 0;">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <svg width="32" height="32" fill="currentColor" viewBox="0 0 32 32" style="color:var(--blue); margin:0 auto 24px; display:block; opacity:0.7;">
         <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
       </svg>
-      <blockquote style="font-size:clamp(1.2rem,3vw,1.6rem); font-weight:700; color:var(--dark); line-height:1.4; margin-bottom:32px; text-wrap:balance;">
+      <blockquote style="font-size:clamp(1.2rem,3vw,1.6rem); font-weight:700; color:#F0F2F5; line-height:1.4; margin-bottom:32px; text-wrap:balance;">
         "Colin's sales training with the team at Prime was truly transformative. The results have been immediate and measurable."
       </blockquote>
-      <div style="font-weight:600; color:var(--dark); margin-bottom:4px;">Luis Guarin</div>
+      <div style="font-weight:600; color:#F0F2F5; margin-bottom:4px;">Luis Guarin</div>
       <div style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">Prime Property Auctions · Glasgow</div>
       <div style="display:flex; align-items:center; justify-content:center; gap:8px;">
         <span style="color:#f59e0b; font-size:15px;">★★★★★</span>
@@ -409,7 +431,7 @@
         <div class="sm:col-span-2">
           <a href="index.html" style="display:flex; align-items:baseline; gap:6px; text-decoration:none; margin-bottom:16px;">
             <span style="font-size:20px; font-weight:800; color:var(--blue);">CamBro</span>
-            <span style="font-size:13px; font-weight:500; color:#4b5563;">&thinsp;/&thinsp;Colin Campbell</span>
+            <span style="font-size:13px; font-weight:500; color:#9ca3af;">&thinsp;/&thinsp;Colin Campbell</span>
           </a>
           <p style="font-size:0.875rem; line-height:1.65; max-width:340px; margin-bottom:20px;">
             Sales coach, speaker, and host of the CamBro Conversations podcast. Helping business owners build the skills and systems to grow.
@@ -452,7 +474,7 @@
       <div style="border-top:1px solid #1a1f2b; padding-top:24px; display:flex; flex-direction:column; gap:8px;">
         <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
           <p style="font-size:12px;">© 2026 Colin Campbell · CamBro Conversations. All rights reserved.</p>
-          <p style="font-size:11px; color:#374151; font-style:italic;">Demo build — contact form &amp; booking links not yet live. Enquire via Linktree.</p>
+          <p style="font-size:11px; color:#9ca3af; font-style:italic;">Demo build — contact form &amp; booking links not yet live. Enquire via Linktree.</p>
         </div>
       </div>
     </div>
@@ -472,7 +494,7 @@
     // Scroll shadow
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
-      header.style.boxShadow = window.scrollY > 8 ? '0 1px 4px rgba(0,0,0,0.07)' : 'none';
+      header.style.boxShadow = window.scrollY > 8 ? '0 2px 12px rgba(0,0,0,0.5)' : 'none';
     }, { passive: true });
   </script>
 
