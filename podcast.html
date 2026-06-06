@@ -23,6 +23,7 @@
     .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#fff; font-family:inherit; font-size:14px; font-weight:600; padding:14px 24px; border-radius:6px; border:none; cursor:pointer; text-decoration:none; transition:background 0.15s; white-space:nowrap; }
     .btn-primary:hover { background:var(--blue-dark); }
     @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     .marquee-inner { display:flex; width:max-content; animation:marquee 48s linear infinite; }
     @media (prefers-reduced-motion: reduce) { .marquee-inner { animation:none; } }
     .ep-card { border-radius:12px; overflow:hidden; border:1px solid #2a2f3d; display:flex; flex-direction:column; }
@@ -163,36 +164,102 @@
         </a>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="ep-card">
-          <img src="assets/spotify-episodes.png" onerror="this.onerror=null;this.src='https://placehold.co/400x220/1B6BE0/ffffff?text=%23364+Scott+Weir'" alt="#364 Scott Weir" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-          <div class="ep-card-body">
-            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#364 · Sunday · 1hr 14min</span>
-            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Scott Weir: From Survival to Success</h3>
-            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">How one entrepreneur turned adversity into a thriving business: a conversation about grit, pivoting, and what really drives success.</p>
+      <!-- Episode cards — populated dynamically from YouTube RSS -->
+      <div id="yt-episodes" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="ep-card" aria-hidden="true">
+          <div style="width:100%;aspect-ratio:16/9;background:#1a2030;animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="display:flex;flex-direction:column;gap:10px;">
+            <div style="height:10px;width:60%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:90%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:70%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
-        <div class="ep-card">
-          <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0F3F94,#1B6BE0);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em">#363</span>
-          </div>
-          <div class="ep-card-body">
-            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#363 · May 24 · 1hr 3min</span>
-            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Adam Power: The 4 Pillars of a Fulfilled Life</h3>
-            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">Purpose, performance, relationships, and health. Adam Power breaks down the framework he uses with high-performing clients.</p>
+        <div class="ep-card" aria-hidden="true">
+          <div style="width:100%;aspect-ratio:16/9;background:#1a2030;animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="display:flex;flex-direction:column;gap:10px;">
+            <div style="height:10px;width:55%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:85%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:65%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
-        <div class="ep-card sm:col-span-2 lg:col-span-1">
-          <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#152d5c,#0F3F94);display:flex;align-items:center;justify-content:center;">
-            <span style="font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em">#362</span>
-          </div>
-          <div class="ep-card-body">
-            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#362 · May 17 · 57min</span>
-            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Lee Mair: From Pro Footballer to Finance Broker</h3>
-            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">Lee Mair's career pivot from professional football into financial services: lessons in identity, reinvention, and building a new network.</p>
+        <div class="ep-card sm:col-span-2 lg:col-span-1" aria-hidden="true">
+          <div style="width:100%;aspect-ratio:16/9;background:#1a2030;animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="display:flex;flex-direction:column;gap:10px;">
+            <div style="height:10px;width:50%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:80%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px;width:60%;background:#1a2030;border-radius:4px;animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
       </div>
+
+      <script>
+        (async function() {
+          const CHANNEL_ID = 'UCG5AF1q0oL9P3ztAl84LHaw';
+          const container = document.getElementById('yt-episodes');
+          const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+
+          async function parseEntries(xmlText) {
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(xmlText, 'application/xml');
+            var allEntries = Array.from(xml.querySelectorAll('entry'));
+            var entries = allEntries.filter(function(entry) {
+              var link = entry.querySelector('link');
+              var href = link ? link.getAttribute('href') : '';
+              return href && href.indexOf('/shorts/') === -1;
+            }).slice(0, 3);
+            if (!entries.length) throw new Error('no entries');
+            return entries.map(function(entry, i) {
+              var link = entry.querySelector('link') ? entry.querySelector('link').getAttribute('href') : '';
+              var entryId = entry.querySelector('id') ? entry.querySelector('id').textContent : '';
+              var videoId = entryId.split(':').pop() || (link.split('v=')[1] || '').split('&')[0];
+              var title = entry.querySelector('title') ? entry.querySelector('title').textContent : '';
+              var published = entry.querySelector('published') ? entry.querySelector('published').textContent : '';
+              return { link: link, videoId: videoId, title: title, published: published, index: i };
+            });
+          }
+
+          async function tryFetch() {
+            try {
+              var r = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl));
+              if (r.ok) { var json = await r.json(); return await parseEntries(json.contents); }
+            } catch(e) {}
+            try {
+              var r2 = await fetch('https://corsproxy.io/?' + encodeURIComponent(rssUrl));
+              if (r2.ok) return await parseEntries(await r2.text());
+            } catch(e) {}
+            throw new Error('all proxies failed');
+          }
+
+          function renderCard(ep) {
+            var thumb = 'https://img.youtube.com/vi/' + ep.videoId + '/hqdefault.jpg';
+            var fallback = 'https://img.youtube.com/vi/' + ep.videoId + '/mqdefault.jpg';
+            var date = ep.published ? new Date(ep.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+            var colSpan = ep.index === 2 ? ' sm:col-span-2 lg:col-span-1' : '';
+            var title = ep.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+            return '<div class="ep-card' + colSpan + '">'
+              + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="display:block;overflow:hidden;">'
+              + '<img src="' + thumb + '" onerror="this.onerror=null;this.src=\'' + fallback + '\'" alt="' + title + '" '
+              + 'style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s;" '
+              + 'onmouseover="this.style.transform=\'scale(1.03)\'" onmouseout="this.style.transform=\'scale(1)\'">'
+              + '</a>'
+              + '<div class="ep-card-body">'
+              + '<span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">' + date + '</span>'
+              + '<h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 10px;line-height:1.35;">' + title + '</h3>'
+              + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;">Watch on YouTube →</a>'
+              + '</div></div>';
+          }
+
+          try {
+            var eps = await tryFetch();
+            container.innerHTML = eps.map(renderCard).join('');
+          } catch(e) {
+            container.innerHTML = '<div style="grid-column:1/-1;padding:40px;text-align:center;border:1px solid var(--border);border-radius:12px;">'
+              + '<p style="color:var(--muted);margin-bottom:16px;">Latest episodes on YouTube</p>'
+              + '<a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">View all episodes →</a>'
+              + '</div>';
+          }
+        })();
+      </script>
     </div>
   </section>
 
