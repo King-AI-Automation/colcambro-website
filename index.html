@@ -364,11 +364,19 @@
           async function parseEntries(xmlText) {
             var parser = new DOMParser();
             var xml = parser.parseFromString(xmlText, 'application/xml');
-            var entries = Array.from(xml.querySelectorAll('entry')).slice(0, 3);
+            var allEntries = Array.from(xml.querySelectorAll('entry'));
+            // Skip Shorts — their /shorts/ links break thumbnail extraction and look wrong at 16:9
+            var entries = allEntries.filter(function(entry) {
+              var link = entry.querySelector('link');
+              var href = link ? link.getAttribute('href') : '';
+              return href && href.indexOf('/shorts/') === -1;
+            }).slice(0, 3);
             if (!entries.length) throw new Error('no entries');
             return entries.map(function(entry, i) {
               var link = entry.querySelector('link') ? entry.querySelector('link').getAttribute('href') : '';
-              var videoId = link ? new URL(link).searchParams.get('v') : '';
+              // Extract from yt:video:ID format in <id> — works regardless of URL structure
+              var entryId = entry.querySelector('id') ? entry.querySelector('id').textContent : '';
+              var videoId = entryId.split(':').pop() || (link.split('v=')[1] || '').split('&')[0];
               var title = entry.querySelector('title') ? entry.querySelector('title').textContent : '';
               var published = entry.querySelector('published') ? entry.querySelector('published').textContent : '';
               return { link: link, videoId: videoId, title: title, published: published, index: i };
