@@ -357,40 +357,64 @@
 
       <script>
         (async function() {
-          // ── REPLACE THIS WITH THE REAL CHANNEL ID ───────────────────────────
-          // To find it: open youtube.com/@ColCamBro, View Page Source, search for "externalId"
           const CHANNEL_ID = 'UCG5AF1q0oL9P3ztAl84LHaw';
-          // ────────────────────────────────────────────────────────────────────
-
           const container = document.getElementById('yt-episodes');
+          const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+
+          async function parseEntries(xmlText) {
+            var parser = new DOMParser();
+            var xml = parser.parseFromString(xmlText, 'application/xml');
+            var entries = Array.from(xml.querySelectorAll('entry')).slice(0, 3);
+            if (!entries.length) throw new Error('no entries');
+            return entries.map(function(entry, i) {
+              var link = entry.querySelector('link') ? entry.querySelector('link').getAttribute('href') : '';
+              var videoId = link ? new URL(link).searchParams.get('v') : '';
+              var title = entry.querySelector('title') ? entry.querySelector('title').textContent : '';
+              var published = entry.querySelector('published') ? entry.querySelector('published').textContent : '';
+              return { link: link, videoId: videoId, title: title, published: published, index: i };
+            });
+          }
+
+          async function tryFetch() {
+            // Proxy 1: allorigins.win (wraps response in JSON)
+            try {
+              var r = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl));
+              if (r.ok) {
+                var json = await r.json();
+                return await parseEntries(json.contents);
+              }
+            } catch(e) {}
+            // Proxy 2: corsproxy.io
+            try {
+              var r2 = await fetch('https://corsproxy.io/?' + encodeURIComponent(rssUrl));
+              if (r2.ok) return await parseEntries(await r2.text());
+            } catch(e) {}
+            throw new Error('all proxies failed');
+          }
+
+          function renderCard(ep) {
+            var thumb = 'https://img.youtube.com/vi/' + ep.videoId + '/maxresdefault.jpg';
+            var fallback = 'https://img.youtube.com/vi/' + ep.videoId + '/hqdefault.jpg';
+            var date = ep.published ? new Date(ep.published).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '';
+            var colSpan = ep.index === 2 ? ' sm:col-span-2 lg:col-span-1' : '';
+            var title = ep.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+            return '<div class="ep-card' + colSpan + '">'
+              + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="display:block;overflow:hidden;">'
+              + '<img src="' + thumb + '" onerror="this.onerror=null;this.src=\'' + fallback + '\'" alt="' + title + '" '
+              + 'style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s;" '
+              + 'onmouseover="this.style.transform=\'scale(1.03)\'" onmouseout="this.style.transform=\'scale(1)\'">'
+              + '</a>'
+              + '<div class="ep-card-body">'
+              + '<span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">' + date + '</span>'
+              + '<h4 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 10px;line-height:1.35;">' + title + '</h4>'
+              + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;">Watch on YouTube →</a>'
+              + '</div></div>';
+          }
+
           try {
-            const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
-            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
-            const res = await fetch(apiUrl);
-            const data = await res.json();
-            if (data.status !== 'ok' || !data.items || !data.items.length) throw new Error('no items');
-
-            const eps = data.items.slice(0, 3);
-            container.innerHTML = eps.map(function(ep, i) {
-              var videoId = (ep.link.split('v=')[1] || '').split('&')[0];
-              var thumb = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
-              var fallback = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg';
-              var date = new Date(ep.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-              var colSpan = i === 2 ? ' sm:col-span-2 lg:col-span-1' : '';
-              var title = ep.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
-              return '<div class="ep-card' + colSpan + '">'
-                + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="display:block;overflow:hidden;">'
-                + '<img src="' + thumb + '" onerror="this.onerror=null;this.src=\'' + fallback + '\'" alt="' + title + '" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s;" onmouseover="this.style.transform=\'scale(1.03)\'" onmouseout="this.style.transform=\'scale(1)\'">'
-                + '</a>'
-                + '<div class="ep-card-body">'
-                + '<span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">' + date + '</span>'
-                + '<h4 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 10px;line-height:1.35;">' + title + '</h4>'
-                + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;">Watch on YouTube →</a>'
-                + '</div></div>';
-            }).join('');
-
+            var eps = await tryFetch();
+            container.innerHTML = eps.map(renderCard).join('');
           } catch(e) {
-            // Fetch failed — show a clean fallback prompt instead of broken skeletons
             container.innerHTML = '<div style="grid-column:1/-1;padding:40px;text-align:center;border:1px solid var(--border);border-radius:12px;">'
               + '<p style="color:var(--muted);margin-bottom:16px;">Latest episodes on YouTube</p>'
               + '<a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">View all episodes →</a>'
