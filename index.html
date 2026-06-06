@@ -33,6 +33,10 @@
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; background: var(--dark); color: #F0F2F5; }
 
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
     @keyframes marquee {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -322,37 +326,78 @@
         </div>
       </div>
 
-      <!-- Episode cards -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-        <div class="ep-card">
-          <img src="assets/spotify-episodes.png" onerror="this.onerror=null;this.src='https://placehold.co/400x220/1B6BE0/ffffff?text=%23364+Scott+Weir'" alt="Episode 364 — Scott Weir" style="width:100%; aspect-ratio:16/9; object-fit:cover; display:block;">
-          <div class="ep-card-body">
-            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue)">#364 · 1hr 14min</span>
-            <h4 style="font-size:1rem; font-weight:700; color:#f3f4f6; margin:8px 0 6px; line-height:1.35;">Scott Weir: From Survival to Success</h4>
-            <p style="font-size:0.85rem; color:#6b7280; line-height:1.5;">How one entrepreneur turned adversity into a thriving business.</p>
+      <!-- Episode cards — populated dynamically from YouTube RSS -->
+      <div id="yt-episodes" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <!-- Loading skeletons -->
+        <div class="ep-card" aria-hidden="true">
+          <div style="width:100%; aspect-ratio:16/9; background:#1a2030; animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="gap:10px; display:flex; flex-direction:column;">
+            <div style="height:10px; width:60%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:90%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:70%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
-        <div class="ep-card">
-          <div style="width:100%; aspect-ratio:16/9; background:#0F3F94; display:flex; align-items:center; justify-content:center;">
-            <span style="font-size:2.5rem; font-weight:800; color:#fff; letter-spacing:-0.03em">#363</span>
-          </div>
-          <div class="ep-card-body">
-            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue)">#363 · 1hr 3min</span>
-            <h4 style="font-size:1rem; font-weight:700; color:#f3f4f6; margin:8px 0 6px; line-height:1.35;">Adam Power: The 4 Pillars of a Fulfilled Life</h4>
-            <p style="font-size:0.85rem; color:#6b7280; line-height:1.5;">Purpose, performance, relationships, and health. Examined in depth.</p>
+        <div class="ep-card" aria-hidden="true">
+          <div style="width:100%; aspect-ratio:16/9; background:#1a2030; animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="gap:10px; display:flex; flex-direction:column;">
+            <div style="height:10px; width:55%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:85%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:65%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
-        <div class="ep-card sm:col-span-2 lg:col-span-1">
-          <div style="width:100%; aspect-ratio:16/9; background:#152d5c; display:flex; align-items:center; justify-content:center;">
-            <span style="font-size:2.5rem; font-weight:800; color:#fff; letter-spacing:-0.03em">#362</span>
-          </div>
-          <div class="ep-card-body">
-            <span style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue)">#362 · 57min</span>
-            <h4 style="font-size:1rem; font-weight:700; color:#f3f4f6; margin:8px 0 6px; line-height:1.35;">Lee Mair: From Pro Footballer to Finance Broker</h4>
-            <p style="font-size:0.85rem; color:#6b7280; line-height:1.5;">A career pivot story every professional should hear.</p>
+        <div class="ep-card sm:col-span-2 lg:col-span-1" aria-hidden="true">
+          <div style="width:100%; aspect-ratio:16/9; background:#1a2030; animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div class="ep-card-body" style="gap:10px; display:flex; flex-direction:column;">
+            <div style="height:10px; width:50%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:80%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
+            <div style="height:14px; width:60%; background:#1a2030; border-radius:4px; animation:pulse 1.5s ease-in-out infinite;"></div>
           </div>
         </div>
       </div>
+
+      <script>
+        (async function() {
+          // ── REPLACE THIS WITH THE REAL CHANNEL ID ───────────────────────────
+          // To find it: open youtube.com/@ColCamBro, View Page Source, search for "externalId"
+          const CHANNEL_ID = 'CHANNEL_ID_PLACEHOLDER';
+          // ────────────────────────────────────────────────────────────────────
+
+          const container = document.getElementById('yt-episodes');
+          try {
+            const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+            const res = await fetch(apiUrl);
+            const data = await res.json();
+            if (data.status !== 'ok' || !data.items || !data.items.length) throw new Error('no items');
+
+            const eps = data.items.slice(0, 3);
+            container.innerHTML = eps.map(function(ep, i) {
+              var videoId = (ep.link.split('v=')[1] || '').split('&')[0];
+              var thumb = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
+              var fallback = 'https://img.youtube.com/vi/' + videoId + '/hqdefault.jpg';
+              var date = new Date(ep.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+              var colSpan = i === 2 ? ' sm:col-span-2 lg:col-span-1' : '';
+              var title = ep.title.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+              return '<div class="ep-card' + colSpan + '">'
+                + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="display:block;overflow:hidden;">'
+                + '<img src="' + thumb + '" onerror="this.onerror=null;this.src=\'' + fallback + '\'" alt="' + title + '" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform 0.3s;" onmouseover="this.style.transform=\'scale(1.03)\'" onmouseout="this.style.transform=\'scale(1)\'">'
+                + '</a>'
+                + '<div class="ep-card-body">'
+                + '<span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">' + date + '</span>'
+                + '<h4 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 10px;line-height:1.35;">' + title + '</h4>'
+                + '<a href="' + ep.link + '" target="_blank" rel="noopener" style="font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;">Watch on YouTube →</a>'
+                + '</div></div>';
+            }).join('');
+
+          } catch(e) {
+            // Fetch failed — show a clean fallback prompt instead of broken skeletons
+            container.innerHTML = '<div style="grid-column:1/-1;padding:40px;text-align:center;border:1px solid var(--border);border-radius:12px;">'
+              + '<p style="color:var(--muted);margin-bottom:16px;">Latest episodes on YouTube</p>'
+              + '<a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex;">View all episodes →</a>'
+              + '</div>';
+          }
+        })();
+      </script>
 
       <!-- Platform buttons + all episodes link -->
       <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px 16px;">
