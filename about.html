@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Colin Campbell — Sales Coach, Speaker & Podcast Host</title>
+  <meta name="description" content="About Colin Campbell — former Sales Director turned coach, speaker, and host of CamBro Conversations. Book a call or send an enquiry.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    :root { --blue:#1B6BE0; --blue-dark:#1457BD; --dark:#0E1116; --muted:#5B6470; --offwhite:#F7F8FA; }
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; color: var(--dark); }
+    .nav-link { font-size:14px; font-weight:500; color:#4b5563; text-decoration:none; padding:8px 12px; border-radius:6px; transition:color 0.15s, background 0.15s; }
+    .nav-link:hover { color:var(--blue); background:#f0f5ff; }
+    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#fff; font-family:inherit; font-size:14px; font-weight:600; padding:14px 24px; border-radius:6px; border:none; cursor:pointer; text-decoration:none; transition:background 0.15s; white-space:nowrap; }
+    .btn-primary:hover { background:var(--blue-dark); }
+    .form-field { width:100%; padding:13px 16px; font-family:inherit; font-size:14px; color:var(--dark); background:#fff; border:1.5px solid #dde1e7; border-radius:8px; outline:none; transition:border-color 0.15s; }
+    .form-field:focus { border-color:var(--blue); }
+    .form-field::placeholder { color:#9ca3af; }
+    label { display:block; font-size:13px; font-weight:600; color:var(--dark); margin-bottom:6px; }
+  </style>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- NAV -->
+  <header id="site-header" class="sticky top-0 z-50 bg-white border-b border-gray-100" style="transition:box-shadow 0.2s">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-baseline gap-1.5 shrink-0 no-underline">
+          <span style="font-size:20px;font-weight:800;color:var(--blue);letter-spacing:-0.02em">CamBro</span>
+          <span class="hidden sm:inline" style="font-size:13px;font-weight:500;color:var(--muted)">&thinsp;/&thinsp;Colin Campbell</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-0.5">
+          <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
+          <a href="speaking.html" class="nav-link">Speaking</a>
+          <a href="podcast.html" class="nav-link">Podcast</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="about.html" class="nav-link" style="color:var(--blue);background:#f0f5ff">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="btn-primary hidden sm:inline-flex" style="padding:8px 18px;font-size:13px">
+            Book a Call
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <button id="nav-toggle" class="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-50">
+            <svg id="icon-menu" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+        <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
+        <a href="speaking.html" class="nav-link">Speaking</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#contact" class="btn-primary mt-3 justify-center">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── ABOUT HERO ────────────────────────────────────────────── -->
+  <section style="padding:80px 0 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+
+        <!-- Photo -->
+        <div class="lg:col-span-2 flex justify-center lg:justify-start">
+          <div style="position:relative; width:100%; max-width:360px;">
+            <div style="position:absolute;top:12px;left:12px;width:100%;height:100%;background:var(--offwhite);border-radius:16px;border:1.5px solid #e5e7eb;"></div>
+            <img
+              src="assets/colin-headshot.jpg"
+              onerror="this.onerror=null;this.src='https://placehold.co/480x580/1B6BE0/ffffff?text=Colin+Campbell'"
+              alt="Colin Campbell"
+              style="position:relative;z-index:1;width:100%;border-radius:16px;object-fit:cover;aspect-ratio:5/6;display:block;border:1.5px solid #e5e7eb;"
+            >
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="lg:col-span-3">
+          <p style="font-size:14px;font-weight:500;color:var(--muted);margin-bottom:16px;">About</p>
+          <h1 style="font-size:clamp(2.25rem,5vw,3.75rem);font-weight:800;letter-spacing:-0.035em;line-height:1.0;color:var(--dark);margin-bottom:28px;text-wrap:balance;">
+            Colin Campbell
+          </h1>
+
+          <div style="display:flex;flex-direction:column;gap:18px;max-width:600px;">
+            <p style="font-size:1.05rem;color:var(--dark);line-height:1.7;font-weight:500;">
+              Colin spent years as a Sales Director, leading teams and building the systems that generate consistent revenue. When he went all-in on coaching and consulting, he brought everything he'd learned with him.
+            </p>
+            <p style="font-size:1rem;color:var(--muted);line-height:1.7;">
+              His coaching and training work spans property, professional services, fitness, and financial services: sectors that look different on the surface but share the same sales fundamentals. The businesses that grow are the ones that take those fundamentals seriously.
+            </p>
+            <p style="font-size:1rem;color:var(--muted);line-height:1.7;">
+              In 2020 he launched CamBro Conversations, a podcast that quickly reached the top 1% globally and now has 345+ episodes, listened to in 121 countries. The show covers business, mindset, performance, and everything in between. Guests have included Chris Williamson of Modern Wisdom.
+            </p>
+            <p style="font-size:1rem;color:var(--muted);line-height:1.7;">
+              Outside of work, Colin's focus is Brain, Body &amp; Business: the belief that how you think, how you look after yourself physically, and how you build your business are all the same conversation.
+            </p>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;">
+            <a href="#contact" class="btn-primary">
+              Book a Discovery Call
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--dark);font-family:inherit;font-size:14px;font-weight:600;padding:14px 24px;border-radius:6px;border:2px solid #dde1e7;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--blue)';this.style.color='var(--blue)'" onmouseout="this.style.borderColor='#dde1e7';this.style.color='var(--dark)'">
+              Linktree
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THREE PILLARS ─────────────────────────────────────────── -->
+  <section style="background:var(--dark); padding:72px 0; color:#fff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-0.02em;color:#fff;margin-bottom:48px;">Brain. Body. Business.</h2>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--blue);margin-bottom:14px;letter-spacing:-0.02em;">Brain</div>
+          <p style="font-size:0.9rem;color:#9ca3af;line-height:1.65;">Mindset, thinking patterns, and decision quality. How you process setbacks, maintain focus, and keep performing at the highest level consistently.</p>
+        </div>
+        <div>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--blue);margin-bottom:14px;letter-spacing:-0.02em;">Body</div>
+          <p style="font-size:0.9rem;color:#9ca3af;line-height:1.65;">Physical energy, habits, and recovery. The link between how you look after yourself and how you show up: in sales calls, in leadership, in life.</p>
+        </div>
+        <div>
+          <div style="font-size:1.75rem;font-weight:800;color:var(--blue);margin-bottom:14px;letter-spacing:-0.02em;">Business</div>
+          <p style="font-size:0.9rem;color:#9ca3af;line-height:1.65;">Sales, systems, and strategy. The practical frameworks that turn effort and potential into consistent revenue, regardless of market conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LEAD MAGNET ───────────────────────────────────────────── -->
+  <section style="background:var(--offwhite); padding:72px 0;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;letter-spacing:-0.025em;color:var(--dark);margin-bottom:12px;">Start here if you're new</h2>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.65;margin-bottom:28px;">Get 20 lessons distilled from 330+ conversations with entrepreneurs and high-performers, free and straight to your inbox.</p>
+      <a href="https://colcambro.kit.com/60ed1b527b" target="_blank" rel="noopener" class="btn-primary" style="justify-content:center;">
+        Get 20 Free Lessons
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT FORM ──────────────────────────────────────────── -->
+  <section id="contact" style="padding:80px 0; border-top:1px solid #e5e7eb;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+
+        <!-- Left: context -->
+        <div>
+          <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.03em;line-height:1.05;color:var(--dark);margin-bottom:20px;text-wrap:balance;">
+            Book a call or send an enquiry
+          </h2>
+          <p style="font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:32px;">
+            Whether you're looking to work together on your own sales results, book Colin for a team workshop, or enquire about speaking: fill in the form and he'll come back to you directly.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div style="width:36px;height:36px;border-radius:8px;background:#EBF2FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--blue)"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.9rem;font-weight:600;color:var(--dark);">Response time</div>
+                <div style="font-size:0.875rem;color:var(--muted);margin-top:2px;">Colin reads every message personally. You'll hear back within 48 hours.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div style="width:36px;height:36px;border-radius:8px;background:#EBF2FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--blue)"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.9rem;font-weight:600;color:var(--dark);">No hard sell</div>
+                <div style="font-size:0.875rem;color:var(--muted);margin-top:2px;">A discovery call is just a conversation. No pressure, no pitch deck.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div style="width:36px;height:36px;border-radius:8px;background:#EBF2FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--blue)"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+              </div>
+              <div>
+                <div style="font-size:0.9rem;font-weight:600;color:var(--dark);">Also on Linktree</div>
+                <div style="font-size:0.875rem;color:var(--muted);margin-top:2px;"><a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="color:var(--blue);">linktr.ee/c.cambro</a>, all links in one place.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <!-- HANDOVER NOTE: Replace action="#" with your Formspree endpoint, e.g. action="https://formspree.io/f/YOUR_ID" -->
+        <form action="#" method="POST" id="contact-form" style="display:flex;flex-direction:column;gap:20px;" onsubmit="handleSubmit(event)">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" class="form-field" placeholder="First and last name" required>
+            </div>
+            <div>
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" class="form-field" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div>
+            <label for="enquiry-type">What's this about?</label>
+            <select id="enquiry-type" name="enquiry_type" class="form-field" style="cursor:pointer; appearance:auto;">
+              <option value="">Select an option</option>
+              <option value="coaching">Sales Coaching (1-to-1)</option>
+              <option value="workshops">Workshop or Team Training</option>
+              <option value="fractional">Fractional Sales Support</option>
+              <option value="speaking">Speaking Enquiry</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div>
+            <label for="company">Company or role <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+            <input type="text" id="company" name="company" class="form-field" placeholder="E.g. Founder at XYZ Ltd">
+          </div>
+          <div>
+            <label for="message">Tell me about your situation</label>
+            <textarea id="message" name="message" class="form-field" rows="5" placeholder="What are you trying to achieve? What's getting in the way? The more specific, the more useful the conversation." style="resize:vertical;" required></textarea>
+          </div>
+
+          <!-- Demo notice -->
+          <div style="padding:12px 16px;background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;font-size:12px;color:#92400e;">
+            <strong>Demo build:</strong> This form is not yet connected to a live backend. To activate, replace <code style="background:#fef3c7;padding:1px 4px;border-radius:3px;">action="#"</code> with your Formspree endpoint (e.g. <code style="background:#fef3c7;padding:1px 4px;border-radius:3px;">https://formspree.io/f/YOUR_ID</code>). In the meantime, reach out via <a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;">Linktree</a>.
+          </div>
+
+          <button type="submit" class="btn-primary" style="justify-content:center;padding:15px 24px;font-size:15px;">
+            Send Message
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+
+          <div id="form-success" style="display:none;padding:16px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;font-size:14px;color:#15803d;font-weight:600;">
+            ✓ Message sent. Colin will come back to you within 48 hours.
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--dark);color:#6b7280;padding:64px 0 32px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div class="sm:col-span-2">
+          <a href="index.html" style="display:flex;align-items:baseline;gap:6px;text-decoration:none;margin-bottom:16px;">
+            <span style="font-size:20px;font-weight:800;color:var(--blue);">CamBro</span>
+            <span style="font-size:13px;font-weight:500;color:#4b5563;">&thinsp;/&thinsp;Colin Campbell</span>
+          </a>
+          <p style="font-size:0.875rem;line-height:1.65;max-width:340px;">Sales coach, speaker, and host of the CamBro Conversations podcast.</p>
+        </div>
+        <div>
+          <h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#9ca3af;margin-bottom:16px;">Navigate</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="work-with-colin.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Work With Colin</a></li>
+            <li><a href="speaking.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Speaking</a></li>
+            <li><a href="podcast.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Podcast</a></li>
+            <li><a href="resources.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Resources</a></li>
+            <li><a href="results.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Results</a></li>
+            <li><a href="about.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#9ca3af;margin-bottom:16px;">Listen</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="https://open.spotify.com/show/41qT7i9uvjWGJbNM6RaFwK" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/gb/podcast/cambro-conversations/id1505785131" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Apple Podcasts</a></li>
+            <li><a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">YouTube</a></li>
+            <li><a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Linktree</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid #1a1f2b;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+        <p style="font-size:12px;">© 2026 Colin Campbell · CamBro Conversations.</p>
+        <p style="font-size:11px;color:#374151;font-style:italic;">Demo build — contact form not yet live. Activate with Formspree endpoint.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('mobile-nav');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('hidden') === false;
+      if (open) { iconMenu.classList.add('hidden'); iconClose.classList.remove('hidden'); }
+      else { iconMenu.classList.remove('hidden'); iconClose.classList.add('hidden'); }
+    });
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 8 ? '0 1px 4px rgba(0,0,0,0.07)' : 'none';
+    }, { passive: true });
+
+    // Demo form: show success state instead of submitting (form action is "#")
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  </script>
+</body>
+</html>

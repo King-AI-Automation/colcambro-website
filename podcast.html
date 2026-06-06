@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CamBro Conversations — Colin Campbell's Top 1% Podcast</title>
+  <meta name="description" content="CamBro Conversations — top 1% globally ranked podcast hosted by Colin Campbell. 345+ episodes, 121 countries. Subscribe on Spotify, Apple Podcasts & YouTube.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { sans: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'] } } }
+    }
+  </script>
+  <style>
+    :root { --blue:#1B6BE0; --blue-dark:#1457BD; --dark:#0E1116; --muted:#5B6470; --offwhite:#F7F8FA; }
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; color: var(--dark); }
+    .nav-link { font-size:14px; font-weight:500; color:#4b5563; text-decoration:none; padding:8px 12px; border-radius:6px; transition:color 0.15s, background 0.15s; }
+    .nav-link:hover { color:var(--blue); background:#f0f5ff; }
+    .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--blue); color:#fff; font-family:inherit; font-size:14px; font-weight:600; padding:14px 24px; border-radius:6px; border:none; cursor:pointer; text-decoration:none; transition:background 0.15s; white-space:nowrap; }
+    .btn-primary:hover { background:var(--blue-dark); }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .marquee-inner { display:flex; width:max-content; animation:marquee 48s linear infinite; }
+    @media (prefers-reduced-motion: reduce) { .marquee-inner { animation:none; } }
+    .ep-card { border-radius:12px; overflow:hidden; border:1px solid #2a2f3d; display:flex; flex-direction:column; }
+    .ep-card-body { padding:20px; background:#161b27; flex:1; }
+    .platform-btn { display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:6px; font-family:inherit; font-size:13px; font-weight:600; color:#fff; text-decoration:none; transition:opacity 0.15s; }
+    .platform-btn:hover { opacity:0.88; }
+  </style>
+</head>
+<body class="bg-white font-sans">
+
+  <!-- NAV -->
+  <header id="site-header" class="sticky top-0 z-50 bg-white border-b border-gray-100" style="transition:box-shadow 0.2s">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-baseline gap-1.5 shrink-0 no-underline">
+          <span style="font-size:20px;font-weight:800;color:var(--blue);letter-spacing:-0.02em">CamBro</span>
+          <span class="hidden sm:inline" style="font-size:13px;font-weight:500;color:var(--muted)">&thinsp;/&thinsp;Colin Campbell</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-0.5">
+          <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
+          <a href="speaking.html" class="nav-link">Speaking</a>
+          <a href="podcast.html" class="nav-link" style="color:var(--blue);background:#f0f5ff">Podcast</a>
+          <a href="resources.html" class="nav-link">Resources</a>
+          <a href="results.html" class="nav-link">Results</a>
+          <a href="about.html" class="nav-link">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="about.html#contact" class="btn-primary hidden sm:inline-flex" style="padding:8px 18px;font-size:13px">
+            Book a Call
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <button id="nav-toggle" class="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-50">
+            <svg id="icon-menu" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden lg:hidden border-t border-gray-100 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1">
+        <a href="work-with-colin.html" class="nav-link">Work With Colin</a>
+        <a href="speaking.html" class="nav-link">Speaking</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+        <a href="resources.html" class="nav-link">Resources</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html#contact" class="btn-primary mt-3 justify-center">Book a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── PODCAST HERO ──────────────────────────────────────────── -->
+  <section style="background:var(--dark); padding:80px 0 72px; color:#fff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-3">
+          <p style="font-size:14px;font-weight:500;color:#6b7280;margin-bottom:16px;">CamBro Conversations</p>
+          <h1 style="font-size:clamp(2.5rem,6vw,4.25rem);font-weight:800;letter-spacing:-0.035em;line-height:1.0;margin-bottom:20px;text-wrap:balance;">
+            Over 330 conversations. One show.
+          </h1>
+          <p style="font-size:1.05rem;color:#9ca3af;line-height:1.65;max-width:480px;margin-bottom:32px;">
+            Business, mindset, sales, and performance. Real conversations with entrepreneurs, coaches, athletes, and high-performers, including <strong style="color:#fff;">Chris Williamson</strong> (Modern Wisdom).
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;">
+            <a href="https://open.spotify.com/show/41qT7i9uvjWGJbNM6RaFwK" target="_blank" rel="noopener" class="platform-btn" style="background:#1DB954;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Listen on Spotify
+            </a>
+            <a href="https://podcasts.apple.com/gb/podcast/cambro-conversations/id1505785131" target="_blank" rel="noopener" class="platform-btn" style="background:#9333ea;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.4c5.3 0 9.6 4.3 9.6 9.6s-4.3 9.6-9.6 9.6S2.4 17.3 2.4 12 6.7 2.4 12 2.4m0-2.4C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 5.4c-3.6 0-6.6 3-6.6 6.6s3 6.6 6.6 6.6 6.6-3 6.6-6.6-3-6.6-6.6-6.6zm0 2.4c1.4 0 2.4 1.1 2.4 2.4 0 1-.7 1.9-1.6 2.2v2.9c0 .4-.4.8-.8.8s-.8-.4-.8-.8v-2.9c-.9-.3-1.6-1.2-1.6-2.2 0-1.3 1-2.4 2.4-2.4z"/></svg>
+              Apple Podcasts
+            </a>
+            <a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" class="platform-btn" style="background:#FF0000;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <img
+            src="assets/podcast-art.jpg"
+            onerror="this.onerror=null;this.src='https://placehold.co/420x420/1B6BE0/ffffff?text=CamBro+Conversations'"
+            alt="CamBro Conversations podcast artwork"
+            style="width:100%;border-radius:16px;object-fit:cover;aspect-ratio:1/1;display:block;"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOCIAL PROOF BAR ──────────────────────────────────────── -->
+  <div style="background:var(--blue); color:#fff; padding:32px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:32px 48px;text-align:center;">
+        <div>
+          <div style="font-size:2rem;font-weight:800;line-height:1;letter-spacing:-0.02em">Top 1%</div>
+          <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;color:#93b8f5">Globally Ranked</div>
+        </div>
+        <div class="hidden md:block" style="width:1px;height:36px;background:#4d8fe8;"></div>
+        <div>
+          <div style="font-size:2rem;font-weight:800;line-height:1;letter-spacing:-0.02em">345+</div>
+          <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;color:#93b8f5">Episodes</div>
+        </div>
+        <div class="hidden md:block" style="width:1px;height:36px;background:#4d8fe8;"></div>
+        <div>
+          <div style="font-size:2rem;font-weight:800;line-height:1;letter-spacing:-0.02em">121</div>
+          <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;color:#93b8f5">Countries</div>
+        </div>
+        <div class="hidden md:block" style="width:1px;height:36px;background:#4d8fe8;"></div>
+        <div>
+          <div style="font-size:2rem;font-weight:800;line-height:1;letter-spacing:-0.02em">1M+</div>
+          <div style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;color:#93b8f5">YouTube Views</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MARQUEE ───────────────────────────────────────────────── -->
+  <div style="background:#0d1117;padding:16px 0;overflow:hidden;border-top:1px solid #1a1f2b;border-bottom:1px solid #1a1f2b;">
+    <div class="marquee-inner">
+      <span style="font-size:13px;font-weight:500;color:#6b7280;white-space:nowrap;padding-right:64px;">
+        🎙&nbsp; Guests include: <strong style="color:#9ca3af">Chris Williamson</strong> (Modern Wisdom) &nbsp;·&nbsp; Property Investors &nbsp;·&nbsp; Business Coaches &nbsp;·&nbsp; Finance Professionals &nbsp;·&nbsp; Sales Leaders &nbsp;·&nbsp; Mindset Experts &nbsp;·&nbsp; Fitness Entrepreneurs &nbsp;·&nbsp; 345+ Episodes &nbsp;·&nbsp; 121 Countries &nbsp;·&nbsp;
+      </span>
+      <span style="font-size:13px;font-weight:500;color:#6b7280;white-space:nowrap;padding-right:64px;">
+        🎙&nbsp; Guests include: <strong style="color:#9ca3af">Chris Williamson</strong> (Modern Wisdom) &nbsp;·&nbsp; Property Investors &nbsp;·&nbsp; Business Coaches &nbsp;·&nbsp; Finance Professionals &nbsp;·&nbsp; Sales Leaders &nbsp;·&nbsp; Mindset Experts &nbsp;·&nbsp; Fitness Entrepreneurs &nbsp;·&nbsp; 345+ Episodes &nbsp;·&nbsp; 121 Countries &nbsp;·&nbsp;
+      </span>
+    </div>
+  </div>
+
+  <!-- ─── LATEST EPISODES ───────────────────────────────────────── -->
+  <section style="background:var(--dark); padding:72px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px;flex-wrap:wrap;">
+        <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;color:#fff;">Latest episodes</h2>
+        <a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;">
+          All episodes on YouTube
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="ep-card">
+          <img src="assets/spotify-episodes.png" onerror="this.onerror=null;this.src='https://placehold.co/400x220/1B6BE0/ffffff?text=%23364+Scott+Weir'" alt="#364 Scott Weir" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+          <div class="ep-card-body">
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#364 · Sunday · 1hr 14min</span>
+            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Scott Weir: From Survival to Success</h3>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">How one entrepreneur turned adversity into a thriving business: a conversation about grit, pivoting, and what really drives success.</p>
+          </div>
+        </div>
+        <div class="ep-card">
+          <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0F3F94,#1B6BE0);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em">#363</span>
+          </div>
+          <div class="ep-card-body">
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#363 · May 24 · 1hr 3min</span>
+            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Adam Power: The 4 Pillars of a Fulfilled Life</h3>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">Purpose, performance, relationships, and health. Adam Power breaks down the framework he uses with high-performing clients.</p>
+          </div>
+        </div>
+        <div class="ep-card sm:col-span-2 lg:col-span-1">
+          <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#152d5c,#0F3F94);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:2.5rem;font-weight:800;color:#fff;letter-spacing:-0.03em">#362</span>
+          </div>
+          <div class="ep-card-body">
+            <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue)">#362 · May 17 · 57min</span>
+            <h3 style="font-size:1rem;font-weight:700;color:#f3f4f6;margin:8px 0 6px;line-height:1.35;">Lee Mair: From Pro Footballer to Finance Broker</h3>
+            <p style="font-size:0.85rem;color:#6b7280;line-height:1.5;">Lee Mair's career pivot from professional football into financial services: lessons in identity, reinvention, and building a new network.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GUEST CATEGORIES ──────────────────────────────────────── -->
+  <section style="padding:72px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.025em;color:var(--dark);margin-bottom:16px;">Conversations across every sector</h2>
+          <p style="font-size:1rem;color:var(--muted);line-height:1.65;margin-bottom:32px;">
+            CamBro Conversations brings together guests from across business, sport, health, and personal development, all with something tangible to say about building a better life or career.
+          </p>
+          <div class="grid grid-cols-2 gap-3">
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Sales & Business</div>
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Property & Investment</div>
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Mindset & Performance</div>
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Fitness & Health</div>
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Finance & Wealth</div>
+            <div style="padding:14px 16px;background:var(--offwhite);border-radius:8px;font-size:0.9rem;font-weight:600;color:var(--dark);">Entrepreneurship</div>
+          </div>
+        </div>
+        <div style="padding:40px;background:var(--dark);border-radius:16px;">
+          <p style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#6b7280;margin-bottom:20px;">Featured guest</p>
+          <div style="font-size:1.75rem;font-weight:800;color:#fff;letter-spacing:-0.02em;margin-bottom:8px;">Chris Williamson</div>
+          <div style="font-size:0.9rem;color:#9ca3af;margin-bottom:20px;">Host of Modern Wisdom, one of the world's most-listened podcasts</div>
+          <p style="font-size:0.95rem;color:#9ca3af;line-height:1.65;margin-bottom:24px;">
+            A conversation between two podcast hosts on growth, content, and what separates the shows that endure from the ones that plateau.
+          </p>
+          <a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;">
+            Watch on YouTube →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EMAIL CAPTURE ─────────────────────────────────────────── -->
+  <section style="background:var(--blue); padding:80px 0; color:#fff;">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.025em;line-height:1.1;margin-bottom:16px;text-wrap:balance;">
+        Get 20 Lessons From 330+ CamBro Conversations
+      </h2>
+      <p style="font-size:1.05rem;color:#b8d4f8;line-height:1.65;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;">
+        The biggest insights distilled from 330+ conversations, delivered straight to your inbox for free.
+      </p>
+      <a href="https://colcambro.kit.com/60ed1b527b" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-family:inherit;font-size:15px;font-weight:700;padding:16px 32px;border-radius:6px;text-decoration:none;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.92'" onmouseout="this.style.opacity='1'">
+        Get Free Access
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <p style="font-size:12px;color:#93b8f5;margin-top:16px;">No spam. Unsubscribe at any time.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--dark);color:#6b7280;padding:64px 0 32px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div class="sm:col-span-2">
+          <a href="index.html" style="display:flex;align-items:baseline;gap:6px;text-decoration:none;margin-bottom:16px;">
+            <span style="font-size:20px;font-weight:800;color:var(--blue);">CamBro</span>
+            <span style="font-size:13px;font-weight:500;color:#4b5563;">&thinsp;/&thinsp;Colin Campbell</span>
+          </a>
+          <p style="font-size:0.875rem;line-height:1.65;max-width:340px;">Sales coach, speaker, and host of the CamBro Conversations podcast.</p>
+        </div>
+        <div>
+          <h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#9ca3af;margin-bottom:16px;">Navigate</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="work-with-colin.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Work With Colin</a></li>
+            <li><a href="speaking.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Speaking</a></li>
+            <li><a href="podcast.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Podcast</a></li>
+            <li><a href="resources.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Resources</a></li>
+            <li><a href="results.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Results</a></li>
+            <li><a href="about.html" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:#9ca3af;margin-bottom:16px;">Listen</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="https://open.spotify.com/show/41qT7i9uvjWGJbNM6RaFwK" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Spotify</a></li>
+            <li><a href="https://podcasts.apple.com/gb/podcast/cambro-conversations/id1505785131" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Apple Podcasts</a></li>
+            <li><a href="https://www.youtube.com/@ColCamBro" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">YouTube</a></li>
+            <li><a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="font-size:0.875rem;color:#6b7280;text-decoration:none;" onmouseover="this.style.color='#e5e7eb'" onmouseout="this.style.color='#6b7280'">Linktree</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid #1a1f2b;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+        <p style="font-size:12px;">© 2026 Colin Campbell · CamBro Conversations.</p>
+        <p style="font-size:11px;color:#374151;font-style:italic;">Demo build — forms not yet live. Enquire via Linktree.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('mobile-nav');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('hidden') === false;
+      if (open) { iconMenu.classList.add('hidden'); iconClose.classList.remove('hidden'); }
+      else { iconMenu.classList.remove('hidden'); iconClose.classList.add('hidden'); }
+    });
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 8 ? '0 1px 4px rgba(0,0,0,0.07)' : 'none';
+    }, { passive: true });
+  </script>
+</body>
+</html>
