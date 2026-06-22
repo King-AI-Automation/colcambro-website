@@ -208,8 +208,7 @@
         </div>
 
         <!-- Right: form -->
-        <!-- HANDOVER NOTE: Replace action="#" with your Formspree endpoint, e.g. action="https://formspree.io/f/YOUR_ID" -->
-        <form action="#" method="POST" id="contact-form" style="display:flex;flex-direction:column;gap:20px;" onsubmit="handleSubmit(event)">
+        <form action="https://formspree.io/f/xkolnygl" method="POST" id="contact-form" style="display:flex;flex-direction:column;gap:20px;">
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label for="name">Your name</label>
@@ -238,11 +237,6 @@
           <div>
             <label for="message">Tell me about your situation</label>
             <textarea id="message" name="message" class="form-field" rows="5" placeholder="What are you trying to achieve? What's getting in the way? The more specific, the more useful the conversation." style="resize:vertical;" required></textarea>
-          </div>
-
-          <!-- Demo notice -->
-          <div style="padding:12px 16px;background:#1c1200;border:1px solid #713f12;border-radius:8px;font-size:12px;color:#fbbf24;">
-            <strong>Demo build:</strong> This form is not yet connected to a live backend. To activate, replace <code style="background:#fef3c7;padding:1px 4px;border-radius:3px;">action="#"</code> with your Formspree endpoint (e.g. <code style="background:#fef3c7;padding:1px 4px;border-radius:3px;">https://formspree.io/f/YOUR_ID</code>). In the meantime, reach out via <a href="https://linktr.ee/c.cambro" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600;">Linktree</a>.
           </div>
 
           <button type="submit" class="btn-primary" style="justify-content:center;padding:15px 24px;font-size:15px;">
@@ -293,7 +287,7 @@
       </div>
       <div style="border-top:1px solid #1a1f2b;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
         <p style="font-size:12px;">© 2026 Colin Campbell · CamBro Conversations.</p>
-        <p style="font-size:11px;color:#9ca3af;font-style:italic;">Demo build — contact form not yet live. Activate with Formspree endpoint.</p>
+        <p style="font-size:11px;color:#9ca3af;font-style:italic;">© 2026 Colin Campbell · All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -313,13 +307,6 @@
       header.style.boxShadow = window.scrollY > 8 ? '0 2px 12px rgba(0,0,0,0.5)' : 'none';
     }, { passive: true });
 
-    // Demo form: show success state instead of submitting (form action is "#")
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      e.target.reset();
-      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  </script>
+</script>
 </body>
 </html>
